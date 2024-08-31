@@ -17,7 +17,7 @@ def create_app():
     @app.route("/" , methods=["GET", "POST"])
     def home():
         if request.method=="POST":
-            entry_content = request.form.get("content")   # content is the name of the textarea inn the html form 
+            entry_content = request.form.get("content") 
             formatted_date = datetime.datetime.today().strftime("%d-%m-%Y")
             app.db.entries.insert_one({"content":entry_content , "date":formatted_date})
 
