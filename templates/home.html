@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="../static/css/styles.css" />
+    <title>Microblog</title>
+  </head>
+  <body>
+    <header class="navbar">
+      <div class="navbar_brand">
+        <img src="../static/logo.png" alt="The Microblog image" />
+      </div>
+
+      <ul class="navbar_navigation">
+        <li class="navbar_navigation-items">
+          <a href="#" class="navbar_navigation-link">Recent</a>
+        </li>
+        <li class="navbar_navigation-items">
+          <a href="#" class="navbar_navigation-link">Calendar</a>
+        </li>
+      </ul>
+    </header>
+
+    <main class="main">
+      <section>
+        <h1>Add New Entry</h1>
+        <form class="form" method="post" action="/">
+          <p class="form_input">
+            <label class="form_label" for="form_entry">Enter content : </label>
+            <textarea type="text" name="content" id="form_entry"></textarea>
+          </p>
+          <button type="submit" class="form_btn">Add Entry</button>
+        </form>
+      </section>
+
+      <section>
+        <h1>Recent Post</h1>
+
+        {% for entry in entries %}
+
+        <artile class="entry">
+          <div>
+            <h2 class="entry_title"> {{entry[0] | truncate(17,true) }} </h2>
+            <time class="entry_date" datetime="01-08-2024">{{entry[1]}}</time>
+          </div>
+          <p class="entry_content">
+            {{entry[0]}}
+          </p>
+        </artile>
+
+        {% endfor %}
+
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="footer_content">
+        <section class="left">
+          <a href="#" class="footer-item">Made by Varshil Lathiya</a>
+          <a href="#" class="footer-item">Check out my other projects</a>
+        </section>
+        <section class="right">
+          <div class="footer-column">
+            <a href="#" class="footer-item">Recent</a>
+            <a href="#" class="footer-item">Calender</a>
+          </div>
+          <div class="footer-column">
+            <a href="#" class="footer-item">About</a>
+            <a href="#" class="footer-item">How this was made</a>
+          </div>
+        </section>
+      </div>
+    </footer>
+  </body>
+</html>
